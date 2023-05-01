@@ -1,0 +1,564 @@
+[debug] [2023-05-01T16:11:15.246Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:11:15.247Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:11:15.248Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:11:15.248Z] Platform:      win32
+[debug] [2023-05-01T16:11:15.248Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:11:15.249Z] Time:          Mon May 01 2023 12:11:15 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:11:15.249Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:11:15.299Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:11:15.300Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:11:15.300Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:11:15.302Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:11:15.302Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:11:15.302Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:11:16.481Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:11:16.482Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:11:16.483Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:11:16.873Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:11:16.874Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:11:16.880Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:11:16.880Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:11:18.734Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:11:18.734Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/4a5fd4fb90c0f30d","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:11:18.859Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:11:38.834Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:11:38.836Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:11:38.837Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:11:38.837Z] Platform:      win32
+[debug] [2023-05-01T16:11:38.837Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:11:38.838Z] Time:          Mon May 01 2023 12:11:38 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:11:38.838Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:11:38.888Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:11:38.888Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:11:38.888Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:11:38.890Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:11:38.890Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:11:38.890Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:11:40.114Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:11:40.114Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:11:40.115Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:11:40.563Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:11:40.563Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:11:40.568Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:11:40.568Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:11:45.836Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:11:45.836Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/acc33afbac37a8c1","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:11:45.933Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:12:32.626Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:12:32.627Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:12:32.628Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:12:32.628Z] Platform:      win32
+[debug] [2023-05-01T16:12:32.628Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:12:32.629Z] Time:          Mon May 01 2023 12:12:32 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:12:32.629Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:12:32.678Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:12:32.679Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:12:32.679Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:12:32.680Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:12:32.680Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:12:32.681Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:12:33.599Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:12:33.599Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:12:33.600Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:12:33.934Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:12:33.934Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:12:33.941Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:12:33.941Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:12:35.473Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:12:35.473Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/613120d2220cd857","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:12:35.592Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:12:57.511Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:12:57.513Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:12:57.513Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:12:57.513Z] Platform:      win32
+[debug] [2023-05-01T16:12:57.513Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:12:57.514Z] Time:          Mon May 01 2023 12:12:57 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:12:57.514Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:12:57.565Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:12:57.565Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:12:57.565Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:12:57.567Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:12:57.567Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:12:57.567Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:12:58.519Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:12:58.519Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:12:58.520Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:12:58.870Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:12:58.870Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:12:58.875Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:12:58.876Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:13:00.114Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:13:00.115Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/8a902a21d516f1d0","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:13:00.244Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:15:27.599Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:15:27.600Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:15:27.601Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:15:27.601Z] Platform:      win32
+[debug] [2023-05-01T16:15:27.601Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:15:27.602Z] Time:          Mon May 01 2023 12:15:27 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:15:27.602Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:15:27.651Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:15:27.651Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:15:27.651Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:15:27.653Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:15:27.653Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:15:27.653Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:15:28.601Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:15:28.602Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:15:28.602Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:15:29.024Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:15:29.024Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:15:29.030Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:15:29.030Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:15:30.515Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:15:30.515Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/f385bc74a8fccf42","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:15:30.665Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:15:41.619Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:15:41.620Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:15:41.620Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:15:41.620Z] Platform:      win32
+[debug] [2023-05-01T16:15:41.620Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:15:41.621Z] Time:          Mon May 01 2023 12:15:41 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:15:41.622Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:15:41.671Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:15:41.672Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:15:41.672Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:15:41.673Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:15:41.674Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:15:41.674Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:15:42.736Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:15:42.736Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:15:42.737Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:15:43.136Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:15:43.136Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:15:43.141Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:15:43.141Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:15:44.593Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:15:44.593Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/071f21e6114ba9ee","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:15:44.726Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:16:11.089Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:16:11.091Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:16:11.091Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:16:11.091Z] Platform:      win32
+[debug] [2023-05-01T16:16:11.091Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:16:11.092Z] Time:          Mon May 01 2023 12:16:11 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:16:11.092Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:16:11.143Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:16:11.144Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:16:11.144Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:16:11.146Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:16:11.146Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:16:11.146Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:16:12.064Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:16:12.065Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:16:12.066Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:16:12.583Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:16:12.583Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:16:12.590Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:16:12.590Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:16:13.797Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:16:13.797Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/45e5d100adf96c86","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:16:13.930Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:17:27.166Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:17:27.167Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --debug
+[debug] [2023-05-01T16:17:27.168Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:17:27.168Z] Platform:      win32
+[debug] [2023-05-01T16:17:27.168Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:17:27.169Z] Time:          Mon May 01 2023 12:17:27 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:17:27.170Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:17:27.220Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:17:27.221Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:17:27.222Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:17:27.224Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:17:27.225Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:17:27.225Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:17:28.245Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:17:28.246Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:17:28.247Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:17:28.668Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:17:28.669Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:17:28.675Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:17:28.675Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:17:29.966Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:17:29.966Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/32abc7ef13547ae3","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:17:30.054Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:17:51.822Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:17:51.824Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:17:51.825Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:17:51.825Z] Platform:      win32
+[debug] [2023-05-01T16:17:51.825Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:17:51.826Z] Time:          Mon May 01 2023 12:17:51 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:17:51.826Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:17:51.876Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:17:51.877Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:17:51.877Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:17:51.878Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:17:51.879Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:17:51.879Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:17:52.776Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:17:52.777Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:17:52.778Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:17:53.149Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:17:53.150Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:17:53.156Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:17:53.156Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:17:54.363Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:17:54.363Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/88dc093882c1cdbc","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:17:54.505Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:19:26.644Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:19:26.646Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:19:26.646Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:19:26.646Z] Platform:      win32
+[debug] [2023-05-01T16:19:26.646Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:19:26.647Z] Time:          Mon May 01 2023 12:19:26 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:19:26.648Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:19:26.698Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:19:26.699Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:19:26.699Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:19:26.701Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:19:26.701Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:19:26.701Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:19:27.654Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:19:27.654Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:19:27.655Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:19:27.952Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:19:27.952Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:19:27.958Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:19:27.958Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:19:29.264Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:19:29.264Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/a93441094b4b3e10","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:19:29.357Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:20:01.479Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:20:01.480Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:20:01.481Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:20:01.481Z] Platform:      win32
+[debug] [2023-05-01T16:20:01.481Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:20:01.483Z] Time:          Mon May 01 2023 12:20:01 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:20:01.483Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:20:01.532Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:20:01.532Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:20:01.532Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:20:01.534Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:20:01.534Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:20:01.534Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:20:02.552Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:20:02.552Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:20:02.553Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:20:02.939Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:20:02.939Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:20:02.945Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:20:02.945Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:20:04.231Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:20:04.231Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/98e246ce085207b7","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:20:04.333Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2023-05-01T16:22:04.652Z] ----------------------------------------------------------------------
+[debug] [2023-05-01T16:22:04.653Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-05-01T16:22:04.653Z] CLI Version:   11.29.1
+[debug] [2023-05-01T16:22:04.654Z] Platform:      win32
+[debug] [2023-05-01T16:22:04.654Z] Node Version:  v18.14.0
+[debug] [2023-05-01T16:22:04.704Z] Time:          Mon May 01 2023 12:22:04 GMT-0400 (hora estándar de Chile)
+[debug] [2023-05-01T16:22:04.704Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-01T16:22:04.756Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-01T16:22:04.759Z] > authorizing via signed-in user (myalcione@gmail.com)
+[debug] [2023-05-01T16:22:04.759Z] [iam] checking project artcircle-id for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-05-01T16:22:04.775Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions [none]
+[debug] [2023-05-01T16:22:04.775Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions x-goog-quota-user=projects/artcircle-id
+[debug] [2023-05-01T16:22:04.776Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:22:06.021Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions 200
+[debug] [2023-05-01T16:22:06.021Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/artcircle-id:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-05-01T16:22:06.022Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id [none]
+[debug] [2023-05-01T16:22:06.360Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id 200
+[debug] [2023-05-01T16:22:06.360Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/artcircle-id {"projectId":"artcircle-id","projectNumber":"353855474373","displayName":"ArtCircle-id","name":"projects/artcircle-id","resources":{"hostingSite":"artcircle-id"},"state":"ACTIVE","etag":"1_750e39d7-ae1a-4f7c-aefc-f56b6adfb9f0"}
+[info] 
+[info] === Deploying to 'artcircle-id'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-05-01T16:22:06.368Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions [none]
+[debug] [2023-05-01T16:22:06.369Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-05-01T16:22:07.607Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions 200
+[debug] [2023-05-01T16:22:07.607Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/artcircle-id/versions {"name":"projects/353855474373/sites/artcircle-id/versions/4504c7c7059f74c7","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[artcircle-id]: beginning deploy... 
+[debug] [2023-05-01T16:22:07.710Z] Error: EPERM: operation not permitted, scandir 'C:/Users/myalc/OneDrive/Escritorio/DEV005-social-network/firebase-debug.log'
+    at Object.readdirSync (node:fs:1451:3)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:285:46)
+    at GlobSync._readdirInGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:242:17)
+    at GlobSync._readdir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:273:17)
+    at GlobSync._processReaddir (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:134:22)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:129:10)
+    at GlobSync._processGlobStar (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:377:10)
+    at GlobSync._process (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:127:10)
+    at new GlobSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:45:10)
+    at globSync (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\node_modules\glob\sync.js:23:10)
+    at listFiles (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\listFiles.js:6:28)
+    at runDeploys (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:44:49)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\hosting\deploy.js:89:12)
+    at chain (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:35:15)
+    at deploy (C:\Users\myalc\AppData\Roaming\npm\node_modules\firebase-tools\lib\deploy\index.js:80:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[error] 
+[error] Error: An unexpected error has occurred.
