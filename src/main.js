@@ -1,12 +1,12 @@
-import home from './contenido/home.js'; 
 import login from './contenido/login.js';
+import home from './contenido/home.js'; 
 import notFound from './contenido/notFound.js';
 
 const root = document.getElementById('root');
 
 const routes = [
-    {path:'/', contenido:home },
-    {path:'/login', contenido: login },
+    {path:'/', contenido:login },
+    {path:'/home', contenido: home },
     {path:'/notFound', contenido: notFound},
 ]
 

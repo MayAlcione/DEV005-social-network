@@ -5,7 +5,7 @@ function home(navigateTo) {
 
     button.textContent = 'Login';
     button.addEventListener('click', () => {
-      navigateTo('/login');  
+      navigateTo('/');  
     });
 
     title.textContent = '¡Bienvenid@!';
