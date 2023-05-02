@@ -32,6 +32,16 @@ h2 {
     padding: 10px 20px;
     align-items: center;
   }
+  .buttonL {
+   
+    
+    border-radius: 10px;
+    border-color: aliceblue;
+    background-color: #73C6B6;
+    color: white;
+    padding: 10px 20px;
+    align-items: center;
+  }
   .container {
     display: flex;
     align-items: center;

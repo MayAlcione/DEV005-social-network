@@ -1,6 +1,7 @@
 import login from './contenido/login.js';
 import home from './contenido/home.js'; 
 import notFound from './contenido/notFound.js';
+import './lib/firebase.js';
 
 const root = document.getElementById('root');
 
