@@ -1,15 +1,15 @@
 function home(navigateTo) {
     const section = document.createElement('section');
     const title = document.createElement('h2');
-    const button = document.createElement('button');
+   /* const button = document.createElement('button');
 
     button.textContent = 'Login';
     button.addEventListener('click', () => {
-      navigateTo('/login');  
-    });
+      navigateTo('/');  
+    });*/
 
     title.textContent = '¡Bienvenid@!';
-    section.append(title, button);
+    section.append(title);
     return section;
 }
 

@@ -1,6 +1,5 @@
 body {
     background-color: #BFC9CA;
-    margin-top: 0px;
 }
 
 h1 {
@@ -33,6 +32,16 @@ h2 {
     padding: 10px 20px;
     align-items: center;
   }
+  .buttonL {
+   
+    
+    border-radius: 10px;
+    border-color: aliceblue;
+    background-color: #73C6B6;
+    color: white;
+    padding: 10px 20px;
+    align-items: center;
+  }
   .container {
     display: flex;
     align-items: center;
@@ -48,8 +57,35 @@ h2 {
     justify-content: center;
     align-items: center;
   }
- 
-  @media (max-width: 360px 740px ); {
-    
+  
+  li {
+    float: left;
+  }
+
+  .navbar {
+    background-color: #5499C7; /* cambia el color de fondo a tu preferencia */
+    position: fixed; /* fija la barra de navegación en la parte superior de la pantalla */
+    top: 0; /* establece la distancia desde la parte superior de la pantalla */
+    left: 0; /* establece la distancia desde el borde izquierdo de la pantalla */
+    width: 100%; /* cubre toda la pantalla */
+    margin: 0; /* establece el margen a cero */
+    padding: 0; /* establece el relleno a cero */
   }
   
+  .navbar ul {
+    list-style: none; /* elimina los puntos de la lista */
+    display: flex; /* convierte la lista en un flexbox */
+    margin: 10px; 
+    padding: 0; /* establece el relleno a cero */
+  }
+  
+  .navbar a {
+    display: block; /* convierte el enlace en un bloque */
+    color: #fff; /* cambia el color del texto a tu preferencia */
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none; /* elimina el subrayado del enlace */
+    padding: 10px; /* agrega relleno al enlace */
+  }
+  .sesion {
+    margin-left: auto;
+  }
