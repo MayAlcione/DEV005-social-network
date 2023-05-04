@@ -1,4 +1,4 @@
-function home(navigateTo) {
+function posts(navigateTo) {
     const section = document.createElement('section');
     const title = document.createElement('h2');
    /* const button = document.createElement('button');
@@ -8,9 +8,9 @@ function home(navigateTo) {
       navigateTo('/');  
     });*/
 
-    title.textContent = '¡Bienvenid@!';
+    title.textContent = '';
     section.append(title);
     return section;
 }
 
-export default home;
+export default posts;

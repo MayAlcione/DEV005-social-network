@@ -1,77 +1,34 @@
-body {
-    background-color: #BFC9CA;
-}
+  body {
+    background-color:#BFC9CA;
+ }
 
-h1 {
-    font-family: 'Lobster';
-    font-weight: 800;
-    font-size: 60px;
-    color: #5499C7;
-    margin-top: 0px;
-}
- 
-h2 {
-    font-family: Arial, Helvetica, sans-serif;
-    font: 60px sans-serif;
-    font-style: oblique;
-    text-align: center;
-    color: #34495E;
-}
-.container {
-    position: relative;
-    display: flex;
-    /* Ajustar la altura y el ancho del contenedor si es necesario */
-  }
-  button {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    border-color: aliceblue;
-    background-color: #73C6B6;
-    color: white;
-    padding: 10px 20px;
-    align-items: center;
-  }
-  .buttonL {
-   
-    
-    border-radius: 10px;
-    border-color: aliceblue;
-    background-color: #73C6B6;
-    color: white;
-    padding: 10px 20px;
-    align-items: center;
-  }
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  input, :root {
-    margin: 50px;
-    padding: 10px 100px;
-    border-radius: 5px;
-    border: none;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+ h1 {
+  font-family: 'Lobster';
+  font-weight: 800;
+  font-size: 60px;
+  color: #5499C7;
+  margin-top: 90px;
+  margin-bottom: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  } 
+
   li {
     float: left;
   }
 
   .navbar {
-    background-color: #5499C7; /* cambia el color de fondo a tu preferencia */
-    position: fixed; /* fija la barra de navegación en la parte superior de la pantalla */
-    top: 0; /* establece la distancia desde la parte superior de la pantalla */
-    left: 0; /* establece la distancia desde el borde izquierdo de la pantalla */
-    width: 100%; /* cubre toda la pantalla */
-    margin: 0; /* establece el margen a cero */
-    padding: 0; /* establece el relleno a cero */
+    background-color: #5499C7;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
-  
+
   .navbar ul {
     list-style: none; /* elimina los puntos de la lista */
     display: flex; /* convierte la lista en un flexbox */
@@ -81,11 +38,93 @@ h2 {
   
   .navbar a {
     display: block; /* convierte el enlace en un bloque */
-    color: #fff; /* cambia el color del texto a tu preferencia */
+    color: #fff; 
     font-family: Arial, Helvetica, sans-serif;
     text-decoration: none; /* elimina el subrayado del enlace */
     padding: 10px; /* agrega relleno al enlace */
   }
-  .sesion {
-    margin-left: auto;
+  
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
   }
+  
+  h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color:#BB8FCE;
+    margin-top: 1rem;
+    font-size: 4rem;
+    margin-top: 2rem;
+  }
+  
+  input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin: 10px;
+    margin-top: 1rem;
+    border-radius: 10px;
+    border: none;
+    box-sizing: border-box; 
+  }
+  
+  button {
+    background-color:#73C6B6;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-color:aliceblue;
+    border-radius: 10px;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+ /* 
+  button:hover {
+    background-color: #73C6B6;
+  }*/
+  
+  img {
+    display: block;
+    margin: 0;
+    margin-top: 3px;
+    margin-bottom: 3px;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .navbar ul {
+        flex-wrap: wrap;
+    }
+    
+    .navbar li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section {
+        margin-left: 100%;
+        margin-top: 100%;
+    }
+    
+    input {
+        max-width: 100%;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    .texto {
+        font-size: 1rem;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+}

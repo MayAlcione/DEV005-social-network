@@ -1,7 +1,7 @@
 function login(navigateTo) {
     const section = document.createElement('section');
     const title = document.createElement('h2');
-    const buttonReturn = document.createElement('button');
+    const buttonRegistro = document.createElement('button');
     const inputEmail = document.createElement('input');
     const inputPass = document.createElement('input');
     const buttonLogin = document.createElement('button');
@@ -14,18 +14,21 @@ function login(navigateTo) {
     const container = document.getElementById("image-container");
     container.appendChild(img);
     
-    
-    inputEmail.placeholder = 'Email';
-    inputPass.placeholder = 'Contraseña';
+    inputEmail.placeholder = 'Ingresar correo eletronico';
+    inputPass.placeholder = 'Ingresar contraseña';
 
-    title.textContent = 'Login';
-    buttonLogin.textContent = 'go';
-    
-    buttonReturn.textContent = 'Iniciar sesion';
-    buttonReturn.addEventListener('click', () => {
-        navigateTo('/home');
+    title.textContent = 'Bienvenid@';
+    buttonLogin.textContent = 'Iniciar sesión';
+    buttonLogin.addEventListener('click', () => {
+      navigateTo('/posts');  
     });
-    section.append(img, title, inputEmail, inputPass, buttonLogin, buttonReturn);
+    
+    buttonRegistro.textContent = 'Crear nueva cuenta';
+    buttonRegistro.addEventListener('click', () => {
+      navigateTo('/registro');  
+    });
+
+    section.append(img, title, inputEmail, inputPass, buttonLogin, buttonRegistro);
 
     return section;
 }

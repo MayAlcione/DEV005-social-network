@@ -1,13 +1,13 @@
 import login from './contenido/login.js';
-import home from './contenido/home.js'; 
 import notFound from './contenido/notFound.js';
 import './lib/firebase.js';
+import posts from './contenido/posts.js';
 
 const root = document.getElementById('root');
 
 const routes = [
     {path:'/', contenido:login },
-    {path:'/home', contenido: home },
+    {path:'/posts', contenido: posts },
     {path:'/notFound', contenido: notFound},
 ]
 
