@@ -4,7 +4,6 @@ import './lib/firebase.js';
 import posts from './contenido/posts.js';
 
 const root = document.getElementById('root');
-
 const routes = [
     {path:'/', contenido:login },
     {path:'/posts', contenido: posts },
@@ -29,9 +28,11 @@ function navigateTo(hash){
           navigateTo('/notFound'); 
         }
     }
-
+   
+      
 window.onpopstate = () => {
     navigateTo(window.location.pathname);
 }
-
 navigateTo(window.location.pathname || defaultRoute);
+
+
