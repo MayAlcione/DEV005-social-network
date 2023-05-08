@@ -1,20 +1,19 @@
 function posts(navigateTo) {
-    const section = document.createElement('section');
-    const title = document.createElement('h2');
-    const button = document.createElement('buttonC');
-    const buttonContainer = document.getElementById('buttonC');
+  const section = document.createElement('section');
+  const title = document.createElement('h2');
+  const button = document.createElement('buttonC');
+  const buttonContainer = document.getElementById('buttonC');
 
-button.textContent = 'Inicio';
-button.addEventListener('click', () => {
-  navigateTo('/');
-});
+  button.textContent = 'Inicio';
+  button.addEventListener('click', () => {
+    navigateTo('/');
+  });
 
-buttonContainer.appendChild(button);
+  buttonContainer.appendChild(button);
 
-    title.textContent = 'Posts';
-    section.append(title);
-    return section;
+  title.textContent = 'Posts';
+  section.append(title);
+  return section;
 }
-
 
 export default posts;
