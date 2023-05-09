@@ -1,15 +1,26 @@
-import { login } from "../lib/firebase.js";
+import { register } from "../lib/firebase.js";
 
-function createLoginComponent(navigateTo) {
+function registro(navigateTo) {
   const section = document.createElement('section');
+  const img = document.createElement('img');
   const title = document.createElement('h2');
-  const buttonRegistro = document.createElement('button');
-  const buttonLogin = document.createElement('button');
-  const buttonGoogle = document.createElement('button');
   const inputEmail = document.createElement('input');
   const inputPass = document.createElement('input');
-  const img = document.createElement('img');
   const error = document.createElement('p');
+  const buttonRegistro= document.createElement('button');
+  const button = document.createElement('buttonC');
+  const buttonContainer = document.getElementById('buttonC');
+
+  button.textContent = 'Inicio';
+  button.addEventListener('click', () => {
+    navigateTo('/');
+  });
+
+  buttonContainer.appendChild(button);
+
+  title.textContent = 'Posts';
+  section.append(title);
+ 
 
   img.src = 'https://cdn-icons-png.flaticon.com/512/6929/6929746.png';
   img.width = 200;
@@ -18,19 +29,19 @@ function createLoginComponent(navigateTo) {
   const container = document.getElementById('image-container');
   container.appendChild(img);
 
-  inputEmail.placeholder = 'Ingresar correo eletronico';
+  inputEmail.placeholder = 'Ingresar correo electrónico';
   inputEmail.type = 'email';
   inputEmail.addEventListener('input', () => {
     if (!inputEmail.checkValidity()) {
       error.textContent = 'Por favor, ingrese un correo electrónico válido';
       inputEmail.classList.add('invalid');
       inputPass.disabled = true;
-      buttonLogin.disabled = true;
+      buttonRegistro.disabled = true;
     } else {
       error.textContent = '';
       inputEmail.classList.remove('invalid');
       inputPass.disabled = false;
-      buttonLogin.disabled = false;
+      buttonRegistro.disabled = false;
     }
   });
 
@@ -48,49 +59,34 @@ function createLoginComponent(navigateTo) {
     if (inputPass.value.length < 6) {
       error.textContent = 'Por favor, ingrese una contraseña de al menos 6 caracteres';
       inputPass.classList.add('invalid');
-      buttonLogin.disabled = true;
+      buttonRegistro.disabled = true;
     } else {
       error.textContent = '';
       inputPass.classList.remove('invalid');
-      buttonLogin.disabled = false;
+      buttonRegistro.disabled = false;
     }
   });
 
   // Habilitando enter
   inputPass.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter' && !buttonLogin.disabled) {
+    if (event.key === 'Enter' && !buttonRegistro.disabled) {
       event.preventDefault();
-      buttonLogin.click();
+      buttonRegistro.click();
     }
   });
 
-  title.textContent = 'Bienvenid@';
-  buttonLogin.textContent = 'Iniciar sesión';
-  buttonLogin.addEventListener('click', async () => {
+  // Creando el botón de registro
+  title.textContent = 'Registro';
+  buttonRegistro.textContent = 'Registrarse'; // Se corrigió el texto del botón
+  buttonRegistro.disabled = true;
+  buttonRegistro.addEventListener('click', async () => {
     try {
-      await login(inputEmail.value, inputPass.value);
-      // Verificar si el usuario está autenticado
-      const user = firebase.auth().currentUser;
-      if (user) {
-        navigateTo('/posts');
-      } else {
-        throw new Error('El usuario no está autenticado');
-      }
+      await register(inputEmail.value, inputPass.value);
+      navigateTo('/posts');
     } catch (error) {
-      error.textContent = 'Error al iniciar sesión. Intente de nuevo más tarde.';
+      // Manejando el error en caso de que el registro falle
+      error.textContent = 'Ha ocurrido un error al registrar su cuenta. Por favor, intente de nuevo más tarde.';
     }
-  });
-  
-
-  buttonRegistro.textContent = 'Crear nueva cuenta';
-  buttonRegistro.addEventListener('click', () => {
-    navigateTo('/registro');
-  });
-
-  buttonGoogle.textContent = 'Acceder con Google';
-  buttonGoogle.addEventListener('click', () => {
-    // Agregar la lógica de autenticación con Firebase para Google y redirigir al usuario si está registrado
-    navigateTo('/posts');
   });
 
   section.append(
@@ -99,12 +95,10 @@ function createLoginComponent(navigateTo) {
     inputEmail,
     inputPass,
     error,
-    buttonLogin,
     buttonRegistro,
-    buttonGoogle,
   );
 
   return section;
 }
 
-export default createLoginComponent;
+export default registro;

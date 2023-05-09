@@ -1,12 +1,14 @@
 import login from './contenido/login.js';
 import notFound from './contenido/notFound.js';
-// import './lib/firebase.js'; // TODO borrar si no hace falta
+import './contenido/registro.js'; 
 import posts from './contenido/posts.js';
+import registro from './contenido/registro.js';
 
 const root = document.getElementById('root');
 const routes = [
   { path: '/', contenido: login },
   { path: '/posts', contenido: posts },
+  { path: '/registro', contenido: registro},
   { path: '/notFound', contenido: notFound },
 ];
 

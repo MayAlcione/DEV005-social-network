@@ -1,9 +1,6 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: 'AIzaSyAVD8pMHrq2emL42HYB3NQGqiNqPsCEl8w',
   authDomain: 'artcircle-id.firebaseapp.com',
   databaseURL: 'https://artcircle-id-default-rtdb.firebaseio.com',
@@ -14,10 +11,5 @@ const firebaseConfig = {
   measurementId: 'G-1LGJ5M3WBK',
 };
 
-// Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
 
-// Export Firebase app and auth objects
-const firebaseAuth = getAuth(firebaseApp);
 
-export { firebaseApp, firebaseAuth };
