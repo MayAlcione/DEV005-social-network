@@ -2,19 +2,20 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { firebaseConfig } from './firebase-config.js';
+
 // Initialize Firebase
-const firebaseApp = initializeApp(firebaseConfig);
+export const firebaseApp = initializeApp(firebaseConfig);
 
 // Export Firebase app and auth objects
-const auth = getAuth(firebaseApp);
+export const auth = getAuth(firebaseApp);
 
- const signInFirebase = (auth, email, password) => {
+export const signInFirebase = (auth, email, password) => {
   return auth.signInWithEmailAndPassword(email, password);
 }
 // exportar login
-export async function login(email, password) {
+export const login = (email, password) => {
   try {
-    const userCredential = await firebase.auth().signInWithEmailAndPassword(email, password);
+    const userCredential = firebase.auth().signInWithEmailAndPassword(email, password);
     return userCredential;
   } catch (error) {
     throw new Error('Error al iniciar sesión. Intente de nuevo más tarde.');

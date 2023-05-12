@@ -87,11 +87,37 @@ function createLoginComponent(navigateTo) {
     navigateTo('/registro');
   });
 
-  buttonGoogle.textContent = 'Acceder con Google';
-  buttonGoogle.addEventListener('click', () => {
-    // Agregar la lógica de autenticación con Firebase para Google y redirigir al usuario si está registrado
-    navigateTo('/posts');
-  });
+// Obtener una referencia al botón
+buttonGoogle.classList.add('buttonGoogle');
+buttonGoogle.textContent = 'Acceder con Google';
+
+// Crear una imagen con el logo de Google
+const logoGoogle = document.createElement('img');
+logoGoogle.src = 'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png';
+logoGoogle.width = '40';
+logoGoogle.margin = '0 auto';
+
+// Agregar la imagen al botón
+buttonGoogle.appendChild(logoGoogle);
+
+// Agregar un evento de clic al botón
+buttonGoogle.addEventListener('click', () => {
+  // Iniciar sesión con Google
+  const provider = new firebase.auth.GoogleAuthProvider();
+  firebase.auth().signInWithPopup(provider)
+    .then(() => {
+      // Redirigir al usuario a la página de inicio
+      navigateTo('/home');
+    })
+    .catch((error) => {
+      // Manejar errores de autenticación
+      console.error(error);
+    });
+});
+
+// Agregar el botón al DOM
+document.body.appendChild(buttonGoogle);
+
 
   section.append(
     img,

@@ -101,9 +101,31 @@
     margin-top: 10px;
     cursor: pointer;
   }
- 
+
+  .buttonGoogle {
+    display: flex;
+    align-items: center;
+    justify-content:left;
+    flex-direction: row-reverse;
+    background-color: whitesmoke;
+    color: #566573;
+    font-size: 20px;
+    font-weight: bold;
+    width: 350px;
+    padding: 10px 20px;
+    border-color: aliceblue;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .logoGoogle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   button:hover {
-    background-color: #BB8FCE ;
+    background-color:  #5499C7;
   }
   
   img {
@@ -112,6 +134,7 @@
     margin-top: 3px;
     margin-bottom: 3px;
   }
+  
   
   p {
     color:#CB4335;
