@@ -1,4 +1,4 @@
-import { login } from "../lib/firebase.js";
+import { login, loginGoogle } from "../lib/firebase.js";
 
 function createLoginComponent(navigateTo) {
   const section = document.createElement('section');
@@ -96,29 +96,18 @@ const logoGoogle = document.createElement('img');
 logoGoogle.src = 'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png';
 logoGoogle.width = '40';
 logoGoogle.margin = '0 auto';
-
 // Agregar la imagen al botón
 buttonGoogle.appendChild(logoGoogle);
 
 // Agregar un evento de clic al botón
 buttonGoogle.addEventListener('click', () => {
-  // Iniciar sesión con Google
-  const provider = new firebase.auth.GoogleAuthProvider();
-  firebase.auth().signInWithPopup(provider)
-    .then(() => {
-      // Redirigir al usuario a la página de inicio
-      navigateTo('/home');
-    })
-    .catch((error) => {
-      // Manejar errores de autenticación
-      console.error(error);
+ loginGoogle()
+    .then(result => {
+      console.log(`${result.user.email} ha iniciado sesión`)
+      navigateTo('/posts');
+    }) 
+    .catch(error => console.log(`Error ${error.code}: ${error.message}`));
     });
-});
-
-// Agregar el botón al DOM
-document.body.appendChild(buttonGoogle);
-
-
   section.append(
     img,
     title,
