@@ -72,7 +72,7 @@ function createLoginComponent(navigateTo) {
       // Verificar si el usuario está autenticado
       const user = firebase.auth().currentUser;
       if (user) {
-        navigateTo('/posts');
+        navigateTo('/home');
       } else {
         throw new Error('El usuario no está autenticado');
       }
@@ -81,7 +81,6 @@ function createLoginComponent(navigateTo) {
     }
   });
   
-
   buttonRegistro.textContent = 'Crear nueva cuenta';
   buttonRegistro.addEventListener('click', () => {
     navigateTo('/registro');
@@ -104,7 +103,7 @@ buttonGoogle.addEventListener('click', () => {
  loginGoogle()
     .then(result => {
       console.log(`${result.user.email} ha iniciado sesión`)
-      navigateTo('/posts');
+      navigateTo('/home');
     }) 
     .catch(error => console.log(`Error ${error.code}: ${error.message}`));
     });

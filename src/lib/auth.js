@@ -23,3 +23,5 @@ import {
   export const recoverPassword = (email) => sendPasswordResetEmail(email);
   export const logOut = () => signOut(auth);
   export const currentUser = () => auth.currentUser;
+
+  

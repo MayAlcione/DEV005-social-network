@@ -1,22 +1,22 @@
-import login from './contenido/login.js';
-import notFound from './contenido/notFound.js';
-import './contenido/registro.js'; 
-import posts from './contenido/posts.js';
-import registro from './contenido/registro.js';
+import login from './components/login.js';
+import notFound from './components/notFound.js';
+import './components/registro.js'; 
+import home from './components/home.js';
+import registro from './components/registro.js';
 
 const root = document.getElementById('root');
 const routes = [
-  { path: '/', contenido: login },
-  { path: '/posts', contenido: posts },
-  { path: '/registro', contenido: registro},
-  { path: '/notFound', contenido: notFound },
+  { path: '/', components: login },
+  { path: '/home', components: home },
+  { path: '/registro', components: registro},
+  { path: '/notFound', components: notFound },
 ];
 
 const defaultRoute = '/';
 
 function navigateTo(hash) {
   const route = routes.find((routeFind) => routeFind.path === hash);
-  if (route && route.contenido) {
+  if (route && route.components) {
     window.history.pushState(
       {},
       route.path,
@@ -25,7 +25,7 @@ function navigateTo(hash) {
     if (root.firstChild) {
       root.removeChild(root.firstChild);
     }
-    root.appendChild(route.contenido(navigateTo));
+    root.appendChild(route.components(navigateTo));
   } else {
     navigateTo('/notFound');
   }

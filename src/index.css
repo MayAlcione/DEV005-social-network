@@ -40,7 +40,7 @@
     margin-right: 5px;
   }
   
-  .navbar a , .buttonC {
+  .navbar a , .btn-inicio {
     float: right;
     display: block;
     color: #fff; 
@@ -105,7 +105,7 @@
   .buttonGoogle {
     display: flex;
     align-items: center;
-    justify-content:left;
+    justify-content:right;
     flex-direction: row-reverse;
     background-color: whitesmoke;
     color: #566573;
@@ -115,6 +115,25 @@
     padding: 10px 20px;
     border-color: aliceblue;
     border-radius: 10px;
+    cursor: pointer;
+  }
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .eliminar, .editar {
+    background-color: whitesmoke;
+    color: #566573;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    width: 80px;
+    height: 20px;
+    padding: 0px 00px;
+    border-color: aliceblue;
+    border-radius: 7px;
     cursor: pointer;
   }
   
@@ -135,12 +154,40 @@
     margin-bottom: 3px;
   }
   
-  
   p {
     color:#CB4335;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
   }
+
+  /* Estilos para el formulario de post */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+form input[type="text"] {
+  display: flex;
+  width: 100%;
+  width: 350px;
+  height: auto;
+  min-height: 100px;
+  max-height: 200px;
+  overflow-y: auto;
+  resize: vertical;
+  white-space: normal;
+  border: none;
+  padding: 10px;
+  border: none;
+  text-align: start;
+  justify-content: flex-start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
   @media screen and (max-width: 768px) {
     .navbar ul {
         flex-wrap: wrap;
@@ -156,11 +203,14 @@
         margin-top: 100%;
     }
     
-    input {
+    input, form Input, form {
         max-width: 75%;
     }
     button {
       max-width: 75%;
+    }
+    .eliminar, .editar {
+      max-width: 100%;
     }
     h2 {
         font-size: 30px;
