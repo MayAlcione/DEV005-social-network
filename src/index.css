@@ -105,22 +105,22 @@
   .buttonGoogle {
     display: flex;
     align-items: center;
-    justify-content:right;
+    justify-content: space-between;
     flex-direction: row-reverse;
     background-color: whitesmoke;
     color: #566573;
     font-size: 20px;
     font-weight: bold;
+    margin-left: 5px;
     width: 350px;
     padding: 10px 20px;
     border-color: aliceblue;
     border-radius: 10px;
     cursor: pointer;
   }
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  
+  button:hover {
+    background-color:  #5499C7;
   }
   
   .eliminar, .editar {
@@ -129,22 +129,15 @@
     font-size: 15px;
     font-weight: bold;
     text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
     width: 80px;
     height: 20px;
     padding: 0px 00px;
     border-color: aliceblue;
     border-radius: 7px;
     cursor: pointer;
-  }
-  
-  .logoGoogle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  button:hover {
-    background-color:  #5499C7;
   }
   
   img {
@@ -170,8 +163,8 @@ form {
 
 form input[type="text"] {
   display: flex;
-  width: 100%;
   width: 350px;
+  width: 100%;
   height: auto;
   min-height: 100px;
   max-height: 200px;
@@ -180,13 +173,38 @@ form input[type="text"] {
   white-space: normal;
   border: none;
   padding: 10px;
-  border: none;
   text-align: start;
   justify-content: flex-start;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 16px;
   box-sizing: border-box;
 }
+
+span {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  text-align: center;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.post-box {
+  width: 350px;
+  padding: 10px 20px;
+  background-color:#cab9d4;
+  border: 1px solid whitesmoke;
+  padding: 10px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
 
   @media screen and (max-width: 768px) {
     .navbar ul {
@@ -204,10 +222,13 @@ form input[type="text"] {
     }
     
     input, form Input, form {
-        max-width: 75%;
+        max-width: 90%;
     }
     button {
-      max-width: 75%;
+      max-width: 90%;
+    }
+    .post-box {
+      max-width: 90%;
     }
     .eliminar, .editar {
       max-width: 100%;

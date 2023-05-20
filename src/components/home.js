@@ -1,11 +1,11 @@
 import { auth, db, guardarPost, getPosts, eliminarPost, editarPost } from "../lib/firebase.js";
 
-function home() {
+function home(navigatoTo) {
   const section = document.createElement('section');
   const title = document.createElement('h2');
-
+  
   title.textContent = 'Home';
-  section.appendChild(title);
+  section.append(title);
 
   // Crear input que reciba post
   const formPost = document.createElement('form');
@@ -21,72 +21,57 @@ function home() {
   formPost.appendChild(buttonPost);
   section.appendChild(formPost);
 
-  formPost.addEventListener('submit', (e) => {
-    e.preventDefault();
+  buttonPost.addEventListener('click', (event) => {
+    event.preventDefault(); // Evitar la acción por defecto del botón
 
-    const contenido = inputPost.value.trim();
-    if (contenido) {
-      const post = {
-        contenido: contenido
-      };
-      guardarPost(post);
-      inputPost.value = '';
-    }
-  });
-
-  // Agregar un evento al botón de guardar
-  buttonPost.textContent = 'Publicar';
-  buttonPost.addEventListener('click', () => {
     const contenido = document.getElementById('postInput').value.trim();
     if (contenido) {
       const post = {
-        contenido: contenido
+        contenido
       };
       guardarPost(post);
       document.getElementById('postInput').value = '';
     }
   });
 
-  // Obtener post y renderizar
+  // Renderizar posts
   const postsContainer = document.createElement("div");
   section.appendChild(postsContainer);
 
-  getPosts().then((posts) => {
-    posts.forEach((post) => {
+  const renderPosts = (querySnapshot) => {
+    console.log(querySnapshot)
+    postsContainer.innerHTML = '';
+    querySnapshot.forEach((doc) => {
+      const post = doc.data();
+      const idDoc = doc.id;
       const postElement = document.createElement("div");
+      postElement.className = "post-box";
       postElement.innerHTML = `
-        <p>${post.contenido}</p>
-        <button class="eliminar" data-postId="${post.id}">Eliminar</button>
-        <button class="editar" data-id="${post.id}">Editar</button>
+        <span>${post.contenido}</span>
+        <button class="eliminar" id="btn-eliminar-${post.id}">Eliminar</button>
+        <button class="editar" id="btn-editar-${post.id}">Editar</button>
       `;
-      // Agregar el post al contenedor
       postsContainer.appendChild(postElement);
-    });
-
-// Obtener referencia a todos los botones de eliminar
-const btnEliminar = document.querySelectorAll('.eliminar');
-
-// Agregar event listener a cada botón de eliminar
-btnEliminar.forEach((btnEliminar) => {
-  btnEliminar.addEventListener('click', () => {
-    const postId = btnEliminar.dataset.postId;
-    eliminarPost(postId);
-  });
-});
-
-    // Boton editar
-    document.querySelectorAll(".editar").forEach((botonEditar) => {
-      botonEditar.addEventListener("click", () => {
-        const postId = botonEditar.dataset.id;
-        const nuevoContenido = prompt("Introduce el nuevo contenido:");
-        if (nuevoContenido) {
-          editarPost(postId, nuevoContenido);
-        }
+    // Eliminar post
+      const btnEliminar = postElement.querySelector(`#btn-eliminar-${post.id}`);
+      btnEliminar.addEventListener("click", () => {
+        eliminarPost(idDoc);
+        console.log(post.contenido)
+        console.log(idDoc)
+      });
+    // Editar post
+      const btnEditar = postElement.querySelector(`#btn-editar-${post.id}`);
+      btnEditar.addEventListener("click", () => {
+        editarPost(idDoc, post.contenido);
       });
     });
-  });
+    
+  };
+
+  getPosts(renderPosts)
 
   return section;
 }
 
 export default home;
+
