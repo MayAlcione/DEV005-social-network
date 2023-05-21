@@ -1,4 +1,6 @@
-import { auth, db, guardarPost, getPosts, eliminarPost, editarPost } from "../lib/firebase.js";
+import {
+  auth, db, guardarPost, getPosts, eliminarPost, editarPost,
+} from '../lib/firebase.js';
 
 function home(navigatoTo) {
   const section = document.createElement('section');
@@ -27,7 +29,7 @@ function home(navigatoTo) {
     const contenido = document.getElementById('postInput').value.trim();
     if (contenido) {
       const post = {
-        contenido
+        contenido,
       };
       guardarPost(post);
       document.getElementById('postInput').value = '';
@@ -35,17 +37,17 @@ function home(navigatoTo) {
   });
 
   // Renderizar posts
-  const postsContainer = document.createElement("div");
+  const postsContainer = document.createElement('div');
   section.appendChild(postsContainer);
 
   const renderPosts = (querySnapshot) => {
-    console.log(querySnapshot)
+    console.log(querySnapshot);
     postsContainer.innerHTML = '';
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       const idDoc = doc.id;
-      const postElement = document.createElement("div");
-      postElement.className = "post-box";
+      const postElement = document.createElement('div');
+      postElement.className = 'post-box';
       postElement.innerHTML = `
         <span>${post.contenido}</span>
         <button class="eliminar" id="btn-eliminar-${idDoc}">Eliminar</button>
@@ -55,26 +57,26 @@ function home(navigatoTo) {
 
       // Eliminar post
       const btnEliminar = postElement.querySelector(`#btn-eliminar-${idDoc}`);
-      btnEliminar.addEventListener("click", () => {
+      btnEliminar.addEventListener('click', () => {
         eliminarPost(idDoc);
-        console.log(post.contenido)
-        console.log(idDoc)
+        console.log(post.contenido);
+        console.log(idDoc);
       });
 
       // Editar post
       const btnEditar = postElement.querySelector(`#btn-editar-${idDoc}`);
-      btnEditar.addEventListener("click", () => {
-        const inputElement = document.createElement("input");
-        inputElement.type = "text";
+      btnEditar.addEventListener('click', () => {
+        const inputElement = document.createElement('input');
+        inputElement.type = 'text';
         inputElement.value = post.contenido;
 
         // Reemplaza el elemento span con el input
-        const spanElement = postElement.querySelector("span");
+        const spanElement = postElement.querySelector('span');
         postElement.replaceChild(inputElement, spanElement);
 
         // Cambia el evento al botón guardar
-        btnEditar.removeEventListener("click", guardarCambios);
-        btnEditar.addEventListener("click", () => {
+        btnEditar.removeEventListener('click', guardarCambios);
+        btnEditar.addEventListener('click', () => {
           const nuevoContenido = inputElement.value;
           guardarCambios(idDoc, nuevoContenido);
         });
@@ -86,19 +88,19 @@ function home(navigatoTo) {
         editarPost(postId, nuevoContenido)
           .then(() => {
             // Actualiza el elemento post con el nuevo contenido
-            const nuevoSpanElement = document.createElement("span");
+            const nuevoSpanElement = document.createElement('span');
             nuevoSpanElement.textContent = nuevoContenido;
 
-            const inputElement = postElement.querySelector("input");
+            const inputElement = postElement.querySelector('input');
             postElement.replaceChild(nuevoSpanElement, inputElement);
 
             // Restaura el evento al botón editar
-            btnEditar.removeEventListener("click", guardarCambios);
-            btnEditar.addEventListener("click", () => {
+            btnEditar.removeEventListener('click', guardarCambios);
+            btnEditar.addEventListener('click', () => {
             });
           })
           .catch((error) => {
-            console.error("Error al guardar cambios: ", error);
+            console.error('Error al guardar cambios: ', error);
           });
       };
     });

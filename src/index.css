@@ -126,17 +126,17 @@
   .eliminar, .editar {
     background-color: whitesmoke;
     color: #566573;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: bold;
     text-align: center;
     justify-content: center;
     align-content: center;
     align-items: center;
-    width: 80px;
+    width: 60px;
     height: 20px;
     padding: 0px 00px;
-    border-color: aliceblue;
-    border-radius: 7px;
+    border-color: 0,5px aliceblue;
+    border-radius: 5px;
     cursor: pointer;
   }
   

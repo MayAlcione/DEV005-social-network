@@ -1,4 +1,4 @@
-import { register } from "../lib/firebase.js";
+import { register } from '../lib/firebase.js';
 
 function registro(navigateTo) {
   const section = document.createElement('section');
@@ -7,7 +7,7 @@ function registro(navigateTo) {
   const inputEmail = document.createElement('input');
   const inputPass = document.createElement('input');
   const error = document.createElement('p');
-  const buttonRegistro= document.createElement('button');
+  const buttonRegistro = document.createElement('button');
   const button = document.createElement('buttonC');
   const buttonContainer = document.getElementById('buttonC');
 
@@ -17,10 +17,6 @@ function registro(navigateTo) {
   });
 
   buttonContainer.appendChild(button);
-
-  title.textContent = 'Posts';
-  section.append(title);
- 
 
   img.src = 'https://cdn-icons-png.flaticon.com/512/6929/6929746.png';
   img.width = 200;
@@ -77,12 +73,12 @@ function registro(navigateTo) {
 
   // Creando el botón de registro
   title.textContent = 'Registro';
-  buttonRegistro.textContent = 'Registrarse'; // Se corrigió el texto del botón
+  buttonRegistro.textContent = 'Registrarse';
   buttonRegistro.disabled = true;
   buttonRegistro.addEventListener('click', async () => {
     try {
       await register(inputEmail.value, inputPass.value);
-      navigateTo('/posts');
+      navigateTo('/home');
     } catch (error) {
       // Manejando el error en caso de que el registro falle
       error.textContent = 'Ha ocurrido un error al registrar su cuenta. Por favor, intente de nuevo más tarde.';

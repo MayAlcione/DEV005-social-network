@@ -1,14 +1,13 @@
 import login from './components/login.js';
 import notFound from './components/notFound.js';
-import './components/registro.js'; 
-import home from './components/home.js';
 import registro from './components/registro.js';
+import home from './components/home.js';
 
 const root = document.getElementById('root');
 const routes = [
   { path: '/', components: login },
   { path: '/home', components: home },
-  { path: '/registro', components: registro},
+  { path: '/registro', components: registro },
   { path: '/notFound', components: notFound },
 ];
 

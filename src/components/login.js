@@ -1,4 +1,4 @@
-import { login, loginGoogle } from "../lib/firebase.js";
+import { login, loginGoogle } from '../lib/firebase.js';
 
 function createLoginComponent(navigateTo) {
   const section = document.createElement('section');
@@ -66,47 +66,49 @@ function createLoginComponent(navigateTo) {
 
   title.textContent = 'Bienvenid@';
   buttonLogin.textContent = 'Iniciar sesión';
-  buttonLogin.addEventListener('click', async () => {
-    try {
-      await login(inputEmail.value, inputPass.value);
-      // Verificar si el usuario está autenticado
-      const user = firebase.auth().currentUser;
-      if (user) {
-        navigateTo('/home');
-      } else {
-        throw new Error('El usuario no está autenticado');
-      }
-    } catch (error) {
-      error.textContent = 'Error al iniciar sesión. Intente de nuevo más tarde.';
-    }
+  buttonLogin.addEventListener('click', () => {
+    const email = inputEmail.value;
+    const password = inputPass.value;
+    login(email, password)
+      .then(() => {
+        // El usuario ha iniciado sesión exitosamente
+        console.log('Usuario autenticado');
+        // Redireccionar a la página deseada
+        window.location.href = '/home';
+      })
+      .catch((error) => {
+        // Ocurrió un error durante el inicio de sesión
+        console.error('Error al autenticar usuario:', error);
+        // Aquí puedes mostrar un mensaje de error o realizar alguna acción específica en caso de error
+      });
   });
-  
+
   buttonRegistro.textContent = 'Crear nueva cuenta';
   buttonRegistro.addEventListener('click', () => {
     navigateTo('/registro');
   });
 
-// Obtener una referencia al botón
-buttonGoogle.classList.add('buttonGoogle');
-buttonGoogle.textContent = 'Acceder con Google';
+  // Obtener una referencia al botón
+  buttonGoogle.classList.add('buttonGoogle');
+  buttonGoogle.textContent = 'Iniciar sesión con Google';
 
-// Crear una imagen con el logo de Google
-const logoGoogle = document.createElement('img');
-logoGoogle.src = 'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png';
-logoGoogle.width = '40';
-logoGoogle.margin = '0 auto';
-// Agregar la imagen al botón
-buttonGoogle.appendChild(logoGoogle);
+  // Crear una imagen con el logo de Google
+  const logoGoogle = document.createElement('img');
+  logoGoogle.src = 'https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-google-icon-logo-png-transparent-svg-vector-bie-supply-14.png';
+  logoGoogle.width = '40';
+  logoGoogle.margin = '0 auto';
+  // Agregar la imagen al botón
+  buttonGoogle.appendChild(logoGoogle);
 
-// Agregar un evento de clic al botón
-buttonGoogle.addEventListener('click', () => {
- loginGoogle()
-    .then(result => {
-      console.log(`${result.user.email} ha iniciado sesión`)
-      navigateTo('/home');
-    }) 
-    .catch(error => console.log(`Error ${error.code}: ${error.message}`));
-    });
+  // Agregar un evento de clic al botón
+  buttonGoogle.addEventListener('click', () => {
+    loginGoogle()
+      .then((result) => {
+        console.log(`${result.user.email} ha iniciado sesión`);
+        navigateTo('/home');
+      })
+      .catch((error) => console.log(`Error ${error.code}: ${error.message}`));
+  });
   section.append(
     img,
     title,
