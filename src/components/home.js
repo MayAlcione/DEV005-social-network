@@ -3,7 +3,7 @@ import { auth, db, guardarPost, getPosts, eliminarPost, editarPost } from "../li
 function home(navigatoTo) {
   const section = document.createElement('section');
   const title = document.createElement('h2');
-  
+
   title.textContent = 'Home';
   section.append(title);
 
@@ -48,30 +48,65 @@ function home(navigatoTo) {
       postElement.className = "post-box";
       postElement.innerHTML = `
         <span>${post.contenido}</span>
-        <button class="eliminar" id="btn-eliminar-${post.id}">Eliminar</button>
-        <button class="editar" id="btn-editar-${post.id}">Editar</button>
+        <button class="eliminar" id="btn-eliminar-${idDoc}">Eliminar</button>
+        <button class="editar" id="btn-editar-${idDoc}">Editar</button>
       `;
       postsContainer.appendChild(postElement);
-    // Eliminar post
-      const btnEliminar = postElement.querySelector(`#btn-eliminar-${post.id}`);
+
+      // Eliminar post
+      const btnEliminar = postElement.querySelector(`#btn-eliminar-${idDoc}`);
       btnEliminar.addEventListener("click", () => {
         eliminarPost(idDoc);
         console.log(post.contenido)
         console.log(idDoc)
       });
-    // Editar post
-      const btnEditar = postElement.querySelector(`#btn-editar-${post.id}`);
+
+      // Editar post
+      const btnEditar = postElement.querySelector(`#btn-editar-${idDoc}`);
       btnEditar.addEventListener("click", () => {
-        editarPost(idDoc, post.contenido);
+        const inputElement = document.createElement("input");
+        inputElement.type = "text";
+        inputElement.value = post.contenido;
+
+        // Reemplaza el elemento span con el input
+        const spanElement = postElement.querySelector("span");
+        postElement.replaceChild(inputElement, spanElement);
+
+        // Cambia el evento al botón guardar
+        btnEditar.removeEventListener("click", guardarCambios);
+        btnEditar.addEventListener("click", () => {
+          const nuevoContenido = inputElement.value;
+          guardarCambios(idDoc, nuevoContenido);
+        });
       });
+
+      // Función para guardar los cambios
+      const guardarCambios = (postId, nuevoContenido) => {
+        // Actualiza el post en la base de datos
+        editarPost(postId, nuevoContenido)
+          .then(() => {
+            // Actualiza el elemento post con el nuevo contenido
+            const nuevoSpanElement = document.createElement("span");
+            nuevoSpanElement.textContent = nuevoContenido;
+
+            const inputElement = postElement.querySelector("input");
+            postElement.replaceChild(nuevoSpanElement, inputElement);
+
+            // Restaura el evento al botón editar
+            btnEditar.removeEventListener("click", guardarCambios);
+            btnEditar.addEventListener("click", () => {
+            });
+          })
+          .catch((error) => {
+            console.error("Error al guardar cambios: ", error);
+          });
+      };
     });
-    
   };
 
-  getPosts(renderPosts)
+  getPosts(renderPosts);
 
   return section;
 }
 
 export default home;
-

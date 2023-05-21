@@ -2,7 +2,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { firebaseConfig } from './firebase-config.js';
-import { getFirestore, collection, addDoc, orderBy, query, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore';
+import { getFirestore, collection, addDoc, getDocs, orderBy, query, deleteDoc, doc, onSnapshot, updateDoc } from 'firebase/firestore';
 
 
 // Initialize Firebase
@@ -50,6 +50,7 @@ export const guardarPost = (post) => {
       })
       .catch((error) => {
         console.error("Error al guardar post: ", error);
+        console.log(guardarPost);
       });
   }
 };
@@ -71,31 +72,33 @@ export const guardarPost = (post) => {
 export const getPosts = (callback) => {
   const postsQuery = query(collection(db, 'posts'), orderBy('fecha', 'desc'));
   return onSnapshot(postsQuery, callback)
+  //return getDocs(postsQuery)
+    // .then((querySnapshot) => {
+    //   const posts = querySnapshot.docs.map((doc) => doc.data());
+    //   return posts;
+    // })
+    // .catch((error) => {
+    //   console.error('Error al cargar los posts: ', error);
+    //   return [];
+    // });
 };
 
 // Eliminar post
 export const eliminarPost = (postId) => {
-  const confirmacion = window.confirm("¿Estás seguro de que deseas eliminar este post?");
-
-  if (confirmacion) {
-    deleteDoc(doc(db, "posts", postId))
-      .then(() => {
-        console.log("Post eliminado con ID: ", postId);
-      })
-      .catch((error) => {
-        console.error("Error al eliminar post: ", error);
-      });
-  }
+  deleteDoc(doc(db, "posts", postId))
+    .then(() => {
+      console.log("Post eliminado con ID: ", postId);
+    })
+    .catch((error) => {
+      console.error("Error al eliminar post: ", error);
+    });
 };
 
 
 // Editar post
 export const editarPost = (postId, nuevoContenido) => {
-
-  const postRef = doc(db, "posts", postId);
-
-  updateDoc(postRef, {
-    contenido: nuevoContenido
+  updateDoc(doc(db, "posts", postId), {
+    contenido: nuevoContenido,
   })
     .then(() => {
       console.log("Post editado con ID: ", postId);
