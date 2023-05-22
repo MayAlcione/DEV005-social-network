@@ -1,14 +1,59 @@
-import {
-  auth, db, guardarPost, getPosts, eliminarPost, editarPost,
-} from '../lib/firebase.js';
+import {auth, db, guardarPost, getPosts, eliminarPost, editarPost, signOut} from '../lib/firebase.js';
 
-function home(navigatoTo) {
+function home(navigateTo) {
   const section = document.createElement('section');
   const title = document.createElement('h2');
 
   title.textContent = 'Home';
   section.append(title);
+  
+  // Logout
+  const navbar = document.querySelector('nav ul');
+  const btnLogout = document.createElement('btn-logout');
+  btnLogout.classList.add('btn-logout');
+  btnLogout.textContent = 'Cerrar sesión';
+  btnLogout.addEventListener('click', () => {
+    signOut(auth)
+      .then(() => {
+        console.log('Usuario cerró sesión exitosamente');
+        showModal('¡Sesión cerrada exitosamente!');
+        navigateTo('/');
+        navbar.removeChild(btnLogout); // Eliminar el botón del navbar
+      })
+      .catch((error) => {
+        console.error('Error al cerrar sesión:', error);
+        showModal('Error al cerrar sesión. Por favor, intenta nuevamente.');
+      });
+  });
 
+  navbar.appendChild(btnLogout);
+
+  // Modal
+  function showModal(message) {
+    // Crear el elemento del modal
+    const modal = document.createElement('div');
+    modal.classList.add('modal');
+    
+    // Crear el contenido del modal
+    const modalContent = document.createElement('div');
+    modalContent.classList.add('modal-content');
+    
+    // Agregar el mensaje al contenido del modal
+    const messageElement = document.createElement('p');
+    messageElement.textContent = message;
+    modalContent.appendChild(messageElement);
+    
+    // Agregar el contenido del modal al modal
+    modal.appendChild(modalContent);
+    
+    // Agregar el modal al documento
+    document.body.appendChild(modal);
+    
+    // Remover el modal después de cierto tiempo (opcional)
+    setTimeout(() => {
+      document.body.removeChild(modal);
+    }, 3000);
+  }
   // Crear input que reciba post
   const formPost = document.createElement('form');
   const inputPost = document.createElement('input');
@@ -69,6 +114,7 @@ function home(navigatoTo) {
         const inputElement = document.createElement('input');
         inputElement.type = 'text';
         inputElement.value = post.contenido;
+        
 
         // Reemplaza el elemento span con el input
         const spanElement = postElement.querySelector('span');
@@ -102,11 +148,12 @@ function home(navigatoTo) {
           .catch((error) => {
             console.error('Error al guardar cambios: ', error);
           });
-      };
+      };         
     });
   };
 
   getPosts(renderPosts);
+
 
   return section;
 }

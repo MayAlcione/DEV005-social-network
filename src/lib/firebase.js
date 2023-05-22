@@ -1,11 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
-import {
-  getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,
-} from 'firebase/auth';
-import {
-  getFirestore, collection, addDoc, getDocs, orderBy, query, deleteDoc, doc, onSnapshot, updateDoc,
-} from 'firebase/firestore';
+import {getAuth, createUserWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword,} from 'firebase/auth';
+import {getFirestore, collection, addDoc, getDocs, orderBy, query, deleteDoc, doc, onSnapshot, updateDoc,} from 'firebase/firestore';
 import { firebaseConfig } from './firebase-config.js';
 
 // Initialize Firebase
@@ -14,6 +10,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 // Export Firebase app and auth objects
 export const auth = getAuth(firebaseApp);
 export const db = getFirestore();
+
 
 export const signInFirebase = (auth, email, password) => auth.signInWithEmailAndPassword(email, password);
 
@@ -106,3 +103,11 @@ export const editarPost = (postId, nuevoContenido) => {
       console.error('Error al editar post: ', error);
     });
 };
+
+// Función para cerrar sesión
+export const signOut = (auth) => {
+  return auth.signOut();
+};
+
+
+

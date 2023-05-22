@@ -21,5 +21,6 @@ export const google = new GoogleAuthProvider();
 
 export const loginGoogle = () => signInWithPopup(auth, google);
 export const recoverPassword = (email) => sendPasswordResetEmail(email);
-export const logOut = () => signOut(auth);
+export const logOut = () => signOut(auth, email, password);
 export const currentUser = () => auth.currentUser;
+
