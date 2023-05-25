@@ -3,10 +3,11 @@ import {auth, db, guardarPost, getPosts, eliminarPost, editarPost, signOut} from
 function home(navigateTo) {
   const section = document.createElement('section');
   const title = document.createElement('h2');
-
-  title.textContent = 'Home';
+  title.textContent = `¡Bienvenidos artistas!
+   Compartamos nuestros mejores tips y experiencias.`;
   section.append(title);
   
+
   // Logout
   const navbar = document.querySelector('nav ul');
   const btnLogout = document.createElement('btn-logout');
@@ -91,18 +92,25 @@ function home(navigateTo) {
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       const idDoc = doc.id;
+      const currentUser = auth.currentUser;
+      const userEmail = currentUser ? currentUser.email : '';
       const postElement = document.createElement('div');
       postElement.className = 'post-box';
       postElement.innerHTML = `
-        <span>${post.contenido}</span>
+      <div class="user-info-container">
+      <span class="user-icon">${userEmail.charAt(0).toUpperCase()}</span>
+      <span class="user-email">${userEmail}</span></div>
+      <span>${post.contenido}</span>
+      <div class="button-container">
         <button class="eliminar" id="btn-eliminar-${idDoc}">Eliminar</button>
-        <button class="editar" id="btn-editar-${idDoc}">Editar</button>
+        <button class="editar" id="btn-editar-${idDoc}">Editar</button></div>
         <button id="likeButton" class="heart-button">
-  <i class="fas fa-heart"></i>
-  <span id="likeCount">0</span>
-</button>
-
-      `;
+        <i class="fas fa-heart"></i>
+        <img src="https://static.vecteezy.com/system/resources/previews/001/187/511/non_2x/heart-png.png" alt="Me gusta" class="like" width="30">
+        <span id="likeCount">0</span>
+        </button>
+         `;
+    
       postsContainer.appendChild(postElement);
 
       // Eliminar post
@@ -113,47 +121,57 @@ function home(navigateTo) {
         console.log(idDoc);
       });
 
-      // Editar post
-      const btnEditar = postElement.querySelector(`#btn-editar-${idDoc}`);
-      btnEditar.addEventListener('click', () => {
-        const inputElement = document.createElement('input');
-        inputElement.type = 'text';
-        inputElement.value = post.contenido;
-        
+     // Editar post
+  const btnEditar = postElement.querySelector(`#btn-editar-${idDoc}`);
+  btnEditar.addEventListener('click', () => {
+  const inputElement = document.createElement('input');
+  inputElement.type = 'text';
+  inputElement.value = post.contenido;
 
-        // Reemplaza el elemento span con el input
-        const spanElement = postElement.querySelector('span');
-        postElement.replaceChild(inputElement, spanElement);
+  const modal = document.createElement('div');
+  modal.classList.add('modal');
 
-        // Cambia el evento al botón guardar
-        btnEditar.removeEventListener('click', guardarCambios);
-        btnEditar.addEventListener('click', () => {
-          const nuevoContenido = inputElement.value;
-          guardarCambios(idDoc, nuevoContenido);
-        });
-      });
+  const modalContent = document.createElement('div');
+  modalContent.textContent = 'Editando post';
+  modalContent.classList.add('modal-content');
 
-      // Función para guardar los cambios
-      const guardarCambios = (postId, nuevoContenido) => {
-        // Actualiza el post en la base de datos
-        editarPost(postId, nuevoContenido)
-          .then(() => {
-            // Actualiza el elemento post con el nuevo contenido
-            const nuevoSpanElement = document.createElement('span');
-            nuevoSpanElement.textContent = nuevoContenido;
+  modalContent.appendChild(inputElement);
 
-            const inputElement = postElement.querySelector('input');
-            postElement.replaceChild(nuevoSpanElement, inputElement);
+  const guardarButton = document.createElement('button');
+  guardarButton.textContent = 'Guardar';
+  modalContent.appendChild(guardarButton);
 
-            // Restaura el evento al botón editar
-            btnEditar.removeEventListener('click', guardarCambios);
-            btnEditar.addEventListener('click', () => {
-            });
-          })
-          .catch((error) => {
-            console.error('Error al guardar cambios: ', error);
-          });
-      };    
+  const cancelarButton = document.createElement('button');
+  cancelarButton.textContent = 'Cancelar';
+  modalContent.appendChild(cancelarButton);
+
+  modal.appendChild(modalContent);
+  document.body.appendChild(modal);
+
+  const guardarCambios = () => {
+    const nuevoContenido = inputElement.value;
+    editarPost(idDoc, nuevoContenido);
+
+    const nuevoSpanElement = document.createElement('span');
+    nuevoSpanElement.textContent = nuevoContenido;
+
+    const inputContainer = postElement.querySelector('.input-container');
+    if (inputContainer && inputContainer.parentNode) {
+      inputContainer.parentNode.replaceChild(nuevoSpanElement, inputContainer);
+    }
+
+    btnEditar.addEventListener('click', editarPost);
+
+    document.body.removeChild(modal);
+  };
+
+  guardarButton.addEventListener('click', guardarCambios);
+  cancelarButton.addEventListener('click', () => {
+    document.body.removeChild(modal);
+  });
+});
+
+      
       let likes = [];
 const likeButton = document.getElementById('likeButton');
 const likeCount = document.getElementById('likeCount');
@@ -195,9 +213,9 @@ function updateLikeCount() {
   likeCount.textContent = likes.length;
 }
 
-// Función para obtener el identificador del usuario actual
+
 function getCurrentUser() {
-  // Implementa tu lógica para obtener el identificador del usuario actual
+ 
   return 'usuario1';
 }
 

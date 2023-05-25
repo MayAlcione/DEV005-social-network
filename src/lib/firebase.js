@@ -74,22 +74,23 @@ export const getPosts = (callback) => {
   return onSnapshot(postsQuery, callback);
 };
 
-// Eliminar post
+// eliminar post
+
 export const eliminarPost = (postId) => {
-  // Mostrar alert de confirmación
   const confirmarEliminar = window.confirm('¿Estás seguro de que deseas eliminar este post?');
 
-  // Si el usuario confirma, eliminar el post
   if (confirmarEliminar) {
-    deleteDoc(doc(db, 'posts', postId))
+    return deleteDoc(doc(db, 'posts', postId))
       .then(() => {
-        console.log('Post eliminado con ID: ', postId);
+        console.log('Post eliminado con ID:', postId);
       })
       .catch((error) => {
-        console.error('Error al eliminar post: ', error);
+        console.error('Error al eliminar el post:', error);
       });
   }
 };
+
+
 
 // Editar post
 export const editarPost = (postId, nuevoContenido) => {
@@ -104,10 +105,12 @@ export const editarPost = (postId, nuevoContenido) => {
     });
 };
 
+
 // Función para cerrar sesión
 export const signOut = (auth) => {
   return auth.signOut();
 };
+
 
 
 
