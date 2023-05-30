@@ -1,4 +1,5 @@
 import {
+  app,
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -6,9 +7,8 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   sendPasswordResetEmail,
-  browserSessionPersistence
 } from 'firebase/auth';
-import { app } from './firebase.js';
+import {} from './firebase.js';
 
 export const auth = getAuth(app);
 

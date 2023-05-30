@@ -75,14 +75,15 @@ function registro(navigateTo) {
   title.textContent = 'Registro';
   buttonRegistro.textContent = 'Registrarse';
   buttonRegistro.disabled = true;
-  buttonRegistro.addEventListener('click', async () => {
-    try {
-      await register(inputEmail.value, inputPass.value);
-      navigateTo('/home');
-    } catch (error) {
-      // Manejando el error en caso de que el registro falle
-      error.textContent = 'Ha ocurrido un error al registrar su cuenta. Por favor, intente de nuevo más tarde.';
-    }
+  buttonRegistro.addEventListener('click', () => {
+    register(inputEmail.value, inputPass.value)
+      .then(() => {
+        navigateTo('/home');
+      })
+      .catch(() => {
+      // Manejar el error en caso de que el registro falle
+        error.textContent = 'Ha ocurrido un error al registrar su cuenta. Por favor, intente de nuevo más tarde.';
+      });
   });
 
   section.append(

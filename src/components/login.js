@@ -71,15 +71,12 @@ function createLoginComponent(navigateTo) {
     const password = inputPass.value;
     login(email, password)
       .then(() => {
-        // El usuario ha iniciado sesión exitosamente
-        console.log('Usuario autenticado');
         // Redireccionar a la página deseada
         window.location.href = '/home';
       })
-      .catch((error) => {
+      .catch(() => {
         // Ocurrió un error durante el inicio de sesión
-        console.error('Error al autenticar usuario:', error);
-        // Aquí puedes mostrar un mensaje de error o realizar alguna acción específica en caso de error
+        window.location.href = '/notFound';
       });
   });
 
@@ -103,11 +100,12 @@ function createLoginComponent(navigateTo) {
   // Agregar un evento de clic al botón
   buttonGoogle.addEventListener('click', () => {
     loginGoogle()
-      .then((result) => {
-        console.log(`${result.user.email} ha iniciado sesión`);
+      .then(() => {
         navigateTo('/home');
       })
-      .catch((error) => console.log(`Error ${error.code}: ${error.message}`));
+      .catch(() => {
+
+      });
   });
   section.append(
     img,

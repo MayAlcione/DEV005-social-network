@@ -3,7 +3,7 @@
  }
 
  h1 {
-  font-family: 'Lobster';
+  font-family: 'Lobster', cursive, sans-serif;
   font-weight: 800px;
   font-size: 60px;
   color: #5499C7;
@@ -90,10 +90,6 @@
     margin-left: 500px;
     margin-right: 500px;
   }
-
-  input:focus {
-    border-color: #73C6B6;
-  }
   
   input {
     width: 100%;
@@ -106,6 +102,10 @@
     box-sizing: border-box; 
     font-size: 20px;
     text-align: center;
+  }
+
+  input:focus {
+    border-color: #73C6B6;
   }
   
   button {
@@ -245,58 +245,16 @@ span.user-icon {
   color: #ffffff;
   text-align: center;
   border-radius: 50%;
-  font-size: 20px;
+  font-size: 15px;
 }
-
-
 
 span.user-email {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
-  font-size: 16px;
+  font-size: 13px;
   color: #834b9b;
 }
 
-
-  @media screen and (max-width: 768px) {
-    .navbar ul {
-        flex-wrap: wrap;
-    }
-    
-    .navbar li a {
-        width: 40%;
-        padding: 5px, 0, 0, 5px;
-    }
-    
-    .section {
-        margin-left: 100%;
-        margin-top: 100%;
-    }
-    
-    input, form Input, form {
-        max-width: 90%;
-    }
-    button {
-      max-width: 90%;
-    }
-    .post-box {
-      max-width: 90%;
-    }
-    .eliminar, .editar {
-      max-width: 100%;
-    }
-    h2 {
-        font-size: 30px;
-    }
-    
-    .texto {
-        font-size: 15px;
-    }
-    
-    img {
-        max-width: 100%;
-    }
-}
 .modal {
   /* Estilos del modal */
   position: fixed;
@@ -329,7 +287,6 @@ span.user-email {
 }
 
 .modal-content button {
-  /* Estilos de los botones */
   margin-top: 10px;
 }
 
@@ -342,12 +299,9 @@ span.user-email {
   cursor: pointer;
   position: relative;
   font-size: 12px;
-  width: 60px;
-  height: 20px;
   padding: 0px 00px;
   left: 120px;
   bottom: 70px;
-  cursor: pointer;
 }
 
 .heart-button:hover {
@@ -372,12 +326,90 @@ span.user-email {
   position: relative;
   top: 32px;
   left: 40px;
-  display: flex;
-  align-items: center;
 }
 
 .like img {
   width: 30px;
   position: relative;
-  top: -5px; /* Ajusta el valor según sea necesario */
+  top: -5px; 
+}
+
+@media screen and (max-width: 768px) {
+  .navbar ul {
+    flex-wrap: wrap;
+  }
+  
+  .navbar li a {
+    width: 40%;
+    padding: 5px 0 0 5px;
+  }
+  
+  .section {
+    margin-left: 100%;
+    margin-top: 100%;
+  }
+  
+  input,
+  form input,
+  form{
+    max-width: 90%;
+  }
+  
+  .post-box {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  button {
+    max-width: 90%;
+  }
+  
+  .eliminar,
+  .editar {
+    max-width: 100%;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+  }
+  
+  h2 {
+    font-size: 20px;
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  
+  .texto {
+    font-size: 15px;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  .modal-content {
+    width: 90%;
+  }
+  
+  .modal-content button {
+    width: 80%;
+  }
+
+  .heart-button {
+    left: 110px; 
+  }
+  
+  .btn-logout {
+    font-size: 15px;
+  }
+
+  span.user-icon {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+  }
+  
 }
