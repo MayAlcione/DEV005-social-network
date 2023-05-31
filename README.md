@@ -2,13 +2,13 @@
 
 ## Índice
 
-# 1. Red social ArtCircle
-# 2. Prototipo de baja fidelidad
-# 3. Prototipo de alta definición
-# 4. Historias de usuarios
+### 1. Red social ArtCircle
+### 2. Prototipo de baja fidelidad
+### 3. Prototipo de alta definición
+### 4. Historias de usuarios
 
 # 1. Red social ArtCircle
-!(https://cdn-icons-png.flaticon.com/512/6929/6929746.png)
+![icon](https://cdn-icons-png.flaticon.com/512/6929/6929746.png)
 
 ArtCircle és una red social creada especialmente para artistas y aspirantes a artistas daren sus consejos y tips para ayudar y inspirar unos a los otros.
 
