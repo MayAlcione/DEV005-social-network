@@ -1,24 +1,25 @@
-![Captura de pantalla 2023-05-30 202739](https://github.com/MayAlcione/DEV005-social-network/assets/124690024/899a6923-f321-4529-a042-eb7d033a8376)
 # Red Social ArtCircle
 
 ## Índice
 
-* 1. Presentación de la red social
-* 2. Prototipo de baja fidelidad
-* 3. Prototipo de alta definición
-* 4. Historias de usuarios
+# 1. Red social ArtCircle
+# 2. Prototipo de baja fidelidad
+# 3. Prototipo de alta definición
+# 4. Historias de usuarios
 
-* 1. Presentación de la red social
+# 1. Red social ArtCircle
+!(https://cdn-icons-png.flaticon.com/512/6929/6929746.png)
+
 ArtCircle és una red social creada especialmente para artistas y aspirantes a artistas daren sus consejos y tips para ayudar y inspirar unos a los otros.
 
-* 2. Prototipo de baja fidelidad
+# 2. Prototipo de baja fidelidad
 ![Captura de pantalla 2023-05-30 202853](https://github.com/MayAlcione/DEV005-social-network/assets/124690024/09c66ae1-2f84-4245-83ba-6ad5bef01046)
 
-* 3. Prototipo de alta definición
+# 3. Prototipo de alta definición
 ![Captura de pantalla 2023-05-30 202739](https://github.com/MayAlcione/DEV005-social-network/assets/124690024/7d0749b4-c744-48c3-96e6-978ceaf831f1)
 
 
-* 4. Historias de usuarios
+# 4. Historias de usuarios
 
 HU1: Yo usuario no registrado de ArtCircle quiero tener una cuenta para poder hacer uso de la red social.
 
