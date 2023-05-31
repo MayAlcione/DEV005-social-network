@@ -8,7 +8,7 @@
 ### 4. Historias de usuarios
 
 # 1. Red social ArtCircle
-![icon](https://cdn-icons-png.flaticon.com/512/6929/6929746.png width=50)
+![icon](https://cdn-icons-png.flaticon.com/512/6929/6929746.png)
 
 ArtCircle és una red social creada especialmente para artistas y aspirantes a artistas daren sus consejos y tips para ayudar y inspirar unos a los otros.
 
