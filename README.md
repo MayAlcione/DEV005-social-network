@@ -1,3 +1,4 @@
+![Captura de pantalla 2023-05-30 202739](https://github.com/MayAlcione/DEV005-social-network/assets/124690024/899a6923-f321-4529-a042-eb7d033a8376)
 # Red Social ArtCircle
 
 ## Índice
@@ -11,10 +12,11 @@
 ArtCircle és una red social creada especialmente para artistas y aspirantes a artistas daren sus consejos y tips para ayudar y inspirar unos a los otros.
 
 * 2. Prototipo de baja fidelidad
-<img src="C:\Users\myalc\OneDrive\Imágenes\Capturas de pantalla\Captura de pantalla 2023-05-30 202853.png" alt="prototipo de baja fidelidad" width="200"/>
+![Captura de pantalla 2023-05-30 202853](https://github.com/MayAlcione/DEV005-social-network/assets/124690024/09c66ae1-2f84-4245-83ba-6ad5bef01046)
 
 * 3. Prototipo de alta definición
-<img src="C:\Users\myalc\OneDrive\Imágenes\Capturas de pantalla\Captura de pantalla 2023-05-30 202739.png" alt="prototipo de alta fidelidad" width="200"/>
+![Captura de pantalla 2023-05-30 202739](https://github.com/MayAlcione/DEV005-social-network/assets/124690024/7d0749b4-c744-48c3-96e6-978ceaf831f1)
+
 
 * 4. Historias de usuarios
 
