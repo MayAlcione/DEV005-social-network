@@ -5,8 +5,7 @@ import {
 function home(navigateTo) {
   const section = document.createElement('section');
   const title = document.createElement('h2');
-  title.textContent = `¡Bienvenidos artistas!
-   Compartamos nuestros mejores tips y experiencias.`;
+  title.textContent = ' Conectando artistas, inspirando almas.';
   section.append(title);
 
   // Logout

@@ -1,6 +1,8 @@
 {
   "hosting": {
-    "public": "./",
+    "site": "artcircleapp",
+
+    "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",

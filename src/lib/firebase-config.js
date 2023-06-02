@@ -1,11 +1,11 @@
 // Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
-  apiKey: 'AIzaSyAVD8pMHrq2emL42HYB3NQGqiNqPsCEl8w',
-  authDomain: 'artcircle-id.firebaseapp.com',
-  databaseURL: 'https://artcircle-id-default-rtdb.firebaseio.com',
-  projectId: 'artcircle-id',
-  storageBucket: 'artcircle-id.appspot.com',
-  messagingSenderId: '353855474373',
-  appId: '1:353855474373:web:6c32fd554158412310feac',
-  measurementId: 'G-1LGJ5M3WBK',
+  apiKey: 'AIzaSyDHSWgNWqj5GDJq-cGs8p0k5eOQwtH8DJ4',
+  authDomain: 'artcircle-app.firebaseapp.com',
+  projectId: 'artcircle-app',
+  storageBucket: 'artcircle-app.appspot.com',
+  messagingSenderId: '44626546653',
+  appId: '1:44626546653:web:e7cb8da46ee370ab8b3034',
+  measurementId: 'G-B1M196C864',
 };

@@ -8,17 +8,18 @@
 * 4. Historias de usuarios
 
 * 1. Presentación de la red social
-ArtCircle és una red social creada especialmente para artistas y aspirantes a artistas daren sus consejos y tips para ayudar y inspirar unos a los otros.
+
+ArtCircle es una red social creada para artistas y aspirantes a artistas. Aquí podrás compartir consejos, técnicas y experiencias artísticas, conectarte con otros artistas, explorar nuevas categorías artísticas y recibir feedback constructivo. Únete a nuestra comunidad y descubre un mundo de posibilidades creativas que te inspirarán en cada paso de tu viaje artístico. ¡Conecta, comparte y crea en ArtCircle!
 
 * 2. Prototipo de baja fidelidad
-<img src="C:\Users\myalc\OneDrive\Imágenes\Capturas de pantalla\Captura de pantalla 2023-05-30 202853.png" alt="prototipo de baja fidelidad" width="200"/>
+
 
 * 3. Prototipo de alta definición
-<img src="C:\Users\myalc\OneDrive\Imágenes\Capturas de pantalla\Captura de pantalla 2023-05-30 202739.png" alt="prototipo de alta fidelidad" width="200"/>
+
 
 * 4. Historias de usuarios
 
-HU1: Yo usuario no registrado de ArtCircle quiero tener una cuenta para poder hacer uso de la red social.
+HU1- Yo usuario no registrado de ArtCircle quiero tener una cuenta para poder hacer uso de la red social.
 
 Criterios de Aceptación:
 
@@ -41,7 +42,7 @@ Definición de terminado:
 - El codigo fue aprobado en un PF por parte de una companera.
 
 
-HU2: Yo como usuario registrado de ArtCircle quiero poder hacer login con mi correo y contraseña, para poder hacer uso de la red social.
+HU2- Yo como usuario registrado de ArtCircle quiero poder hacer login con mi correo y contraseña, para poder hacer uso de la red social.
 
 Criterios de Aceptación:
 
