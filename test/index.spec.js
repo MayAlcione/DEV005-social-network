@@ -44,7 +44,7 @@ jest.mock('firebase/auth', () => ({
 }));
 
 jest.mock('firebase/firestore', () => ({
-  getDatabase: jest.fn(),
+  getFirestore: jest.fn(),
   collection: jest.fn(),
   addDoc: jest.fn(),
   orderBy: jest.fn(),
@@ -58,7 +58,7 @@ jest.mock('firebase/firestore', () => ({
 }));
 
 describe('signInFirebase', () => {
-  it('debería iniciar sesión con el correo electrónico y la contraseña del usuario', () => {
+  it('deberia iniciar sesion con eamil y contraseña', () => {
     const email = 'test@example.com';
     const password = 'password123';
 
@@ -72,7 +72,7 @@ describe('signInFirebase', () => {
 });
 
 describe('login', () => {
-  it('debería iniciar sesión con el correo electrónico y la contraseña del usuario', () => {
+  it('deberia hacer login utilizando email y contraseña', () => {
     const email = 'test@example.com';
     const password = 'password123';
 
@@ -85,7 +85,7 @@ describe('login', () => {
 });
 
 describe('register', () => {
-  it('debería registrar a un nuevo usuario con el correo electrónico y la contraseña', () => {
+  it('deberia registrar usuario utilizando email y contraseña', () => {
     const email = 'test@example.com';
     const password = 'password123';
 
@@ -98,7 +98,7 @@ describe('register', () => {
 });
 
 describe('loginGoogle', () => {
-  it('debería iniciar sesión con Google', () => {
+  it('deberia iniciar sesion con Google', () => {
     signInWithPopup.mockResolvedValue();
 
     return loginGoogle().then(() => {
@@ -108,7 +108,7 @@ describe('loginGoogle', () => {
 });
 
 describe('guardarPost', () => {
-  it('no debería guardar un post si el usuario no está autenticado', () => {
+  it('no deberia salvar post de usuario no autenticado', () => {
     jest.spyOn(auth, 'currentUser', 'get').mockReturnValue(null);
 
     return guardarPost({ contenido: 'Test Post' }).then(() => {
@@ -116,12 +116,10 @@ describe('guardarPost', () => {
     });
   });
 
-  it('debería guardar un post si el usuario está autenticado', () => {
-    // Simular el usuario autenticado
+  it('deberia salvar post de usuario autenticado', () => {
     const user = { uid: 'testUserId' };
     jest.spyOn(auth, 'currentUser', 'get').mockReturnValue(user);
 
-    // Simular la función addDoc para verificar su llamado
     const addDocMock = jest.fn();
     addDoc.mockImplementation(addDocMock);
 
@@ -141,7 +139,7 @@ describe('guardarPost', () => {
 });
 
 describe('getPosts', () => {
-  it('debería recuperar los posts e invocar la función de callback', () => {
+  it('deberia retornar pots y invocar funcion callback', () => {
     const callback = jest.fn();
     const postsQuery = {};
 
@@ -156,7 +154,7 @@ describe('getPosts', () => {
 });
 
 describe('eliminarPost', () => {
-  it('debería eliminar un post si se confirma', () => {
+  it('deberia eliminar post si confirmado', () => {
     window.confirm = jest.fn().mockReturnValue(true);
     deleteDoc.mockResolvedValue();
 
@@ -166,7 +164,7 @@ describe('eliminarPost', () => {
     });
   });
 
-  it('debería cancelar la eliminación de un post si se cancela', () => {
+  it('deberia cancelar eliminación del post si es cancelado', () => {
     window.confirm = jest.fn().mockReturnValue(false);
 
     return eliminarPost('postId123').then(() => {
@@ -177,7 +175,7 @@ describe('eliminarPost', () => {
 });
 
 describe('editarPost', () => {
-  it('debería modificar el contenido de un post', () => {
+  it('deberia modificar el contenido del post', () => {
     updateDoc.mockResolvedValue();
 
     return editarPost('postId123', 'nuevo contenido').then(() => {
@@ -190,7 +188,7 @@ describe('editarPost', () => {
 });
 
 describe('signOut', () => {
-  it('debería cerrar la sesión del usuario', () => {
+  it('deberia cerrar sesion de usuario', () => {
     auth.signOut = jest.fn().mockResolvedValue();
 
     return signOut().then(() => {

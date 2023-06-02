@@ -178,7 +178,6 @@
     font-weight: bold;
   }
 
-  /* Estilos para el formulario de post */
 form {
   display: flex;
   flex-direction: column;
@@ -257,7 +256,6 @@ span.user-email {
 }
 
 .modal {
-  /* Estilos del modal */
   position: fixed;
   top: 0;
   left: 0;
@@ -270,7 +268,6 @@ span.user-email {
 }
 
 .modal-content {
-  /* Estilos del contenido del modal */
   width: 350px;
   height: 200px;
   border-radius: 15px;

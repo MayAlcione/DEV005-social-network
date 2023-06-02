@@ -30,7 +30,7 @@ function home(navigateTo) {
     // Agregar el modal al documento
     document.body.appendChild(modal);
 
-    // Remover el modal después de cierto tiempo (opcional)
+    // Remover el modal después de cierto tiempo
     setTimeout(() => {
       document.body.removeChild(modal);
     }, 3000);
