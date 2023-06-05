@@ -151,7 +151,7 @@
     text-align: center;
     width: 60px;
     height: 20px;
-    padding: 0px 00px;
+    padding: 0px 0px;
     border-color: 0,5px aliceblue;
     border-radius: 5px;
     cursor: pointer;
@@ -299,7 +299,7 @@ span.user-email {
   font-size: 12px;
   padding: 0px 00px;
   left: 120px;
-  bottom: 70px;
+  bottom: 50px;
 }
 
 .heart-button:hover {

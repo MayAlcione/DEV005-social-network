@@ -89,7 +89,7 @@ function home(navigateTo) {
     querySnapshot.forEach((doc) => {
       const post = doc.data();
       const idDoc = doc.id;
-      //  const currentUser = auth.currentUser;
+      //  const userEmail= post.usuario;
       const userEmail = post.usuario;
       const postElement = document.createElement('div');
       postElement.className = 'post-box';
@@ -106,52 +106,18 @@ function home(navigateTo) {
         <span id="likeCount">0</span>
         </button>
          `;
-      // Likes
-      let likes = [];
-      // Obtén una referencia al botón de "Me gusta"
-      const likeButton = postElement.querySelector(`#likeButton-${idDoc}`);
-      // Obtén el ID del post desde el atributo data-idPost
-      const postId = likeButton.getAttribute('data-idPost');
-      // Obtén el ID del usuario actual
-      const userId = auth.currentUser.uid;
-
-      // Obtén una referencia al contador de "Me gusta"
-      const likeCountElement = postElement.querySelector('#likeCount');
-
-      // Agrega el evento de clic al botón
-      likeButton.addEventListener('click', () => {
-        // Verifica si el usuario ya ha dado "Me gusta" o no
-        if (likes.includes(userId)) {
-          unlikePost(postId, userId)
-            .then(() => {
-              // Remueve el ID del usuario de la lista de likes
-              likes = likes.filter((id) => id !== userId);
-              // Actualiza el contador de "Me gusta" en la vista
-              likeCountElement.textContent = likes.length.toString();
-              likeButton.classList.remove('liked'); // Remueve la clase "liked"
-            })
-            .catch(() => {
-            });
-        } else {
-          likePost(postId, userId)
-            .then(() => {
-              // Agrega el ID del usuario a la lista de likes
-              likes.push(userId);
-              // Actualiza el contador de "Me gusta" en la vista
-              likeCountElement.textContent = likes.length.toString();
-              likeButton.classList.add('liked'); // Agrega la clase "liked"
-            })
-            .catch(() => {
-            });
-        }
-      });
-
-      postsContainer.appendChild(postElement);
-
       // Eliminar post
       const btnEliminar = postElement.querySelector(`#btn-eliminar-${idDoc}`);
       btnEliminar.addEventListener('click', () => {
-        eliminarPost(idDoc);
+        eliminarPost(idDoc, (eliminado) => {
+          if (eliminado) {
+            // El post fue eliminado correctamente
+            // console.log('Post eliminado correctamente');
+          } else {
+            // Ocurrió un error al eliminar el post
+            // console.log('Error al eliminar el post');
+          }
+        });
       });
 
       // Editar post
@@ -203,6 +169,52 @@ function home(navigateTo) {
           document.body.removeChild(modal);
         });
       });
+
+      // Likes
+      let likes = [];
+      // Obtén una referencia al botón de "Me gusta"
+      const likeButton = postElement.querySelector(`#likeButton-${idDoc}`);
+      // Obtén el ID del post desde el atributo data-idPost
+      const postId = likeButton.getAttribute('data-idPost');
+      // Obtén el ID del usuario actual
+      const userId = auth.currentUser.uid;
+
+      // Obtén una referencia al contador de "Me gusta"
+      const likeCountElement = postElement.querySelector('#likeCount');
+
+      // Agrega el evento de clic al botón
+      likeButton.addEventListener('click', () => {
+        // Verifica si el usuario ya ha dado "Me gusta" o no
+        if (likes.includes(userId)) {
+          unlikePost(postId, userId)
+            .then(() => {
+              // Remueve el ID del usuario de la lista de likes
+              likes = likes.filter((id) => id !== userId);
+              // Actualiza el contador de "Me gusta" en la vista
+              likeCountElement.textContent = likes.length.toString();
+              likeButton.classList.remove('liked'); // Remueve la clase "liked"
+            })
+            .catch(() => {
+            });
+        } else {
+          likePost(postId, userId)
+            .then(() => {
+              // Agrega el ID del usuario a la lista de likes
+              likes.push(userId);
+              // Actualiza el contador de "Me gusta" en la vista
+              likeCountElement.textContent = likes.length.toString();
+              likeButton.classList.add('liked'); // Agrega la clase "liked"
+            })
+            .catch(() => {
+            });
+        }
+      });
+      // Verificar si el usuario actual es el creador del post
+      if (post.usuario !== auth.currentUser.email) {
+        btnEliminar.style.display = 'none';
+        btnEditar.style.display = 'none';
+      }
+      postsContainer.appendChild(postElement);
     });
   };
 

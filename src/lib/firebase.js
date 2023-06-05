@@ -45,17 +45,34 @@ export const register = (email, password) => createUserWithEmailAndPassword(auth
 const provider = new GoogleAuthProvider();
 export const loginGoogle = () => signInWithPopup(auth, provider);
 
+export const guardarEmail = (email) => {
+  const emailCollection = collection(db, 'emails');
+  return addDoc(emailCollection, { email });
+};
+
 // Guardar post
 export const guardarPost = (post) => {
   const user = getAuth().currentUser;
   if (user) {
     // Si el usuario está autenticado, guardar el post
-    addDoc(collection(db, 'posts'), {
+    const postRef = collection(db, 'posts');
+    const newPost = {
       ...post,
       fecha: new Date(),
-      usuario: auth.currentUser.uid,
-    });
+      usuario: user.email,
+    };
+    return addDoc(postRef, newPost)
+      .then(() => {
+        const userEmail = user.email;
+        return guardarEmail(userEmail); // Guarda el correo electrónico en la colección 'emails'
+      })
+      .catch((error) => {
+        // console.error('Error al guardar el post:', error);
+        throw error; // Lanzar el error
+      });
   }
+
+  return null; // O cualquier otro valor que desees devolver si el usuario no está autenticado
 };
 
 // Mostrar post
@@ -65,13 +82,18 @@ export const getPosts = (callback) => {
 };
 
 // Eliminar post
-export const eliminarPost = (postId) => {
+export const eliminarPost = (postId, callback) => {
   // eslint-disable-next-line no-alert
   const confirmarEliminar = window.confirm('¿Estás seguro de que deseas eliminar este post?');
   if (confirmarEliminar) {
-    return deleteDoc(doc(db, 'posts', postId));
+    deleteDoc(doc(db, 'posts', postId))
+      .then(() => {
+        callback(true); // Indicar que el post fue eliminado exitosamente
+      })
+      .catch(() => {
+        callback(false); // Indicar que ocurrió un error al eliminar el post
+      });
   }
-  return null;
 };
 
 // Editar post
