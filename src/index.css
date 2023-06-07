@@ -206,6 +206,7 @@ form input[type="text"] {
 
 span {
   display: flex;
+  overflow-wrap: anywhere;
   margin-top: 10px;
   margin-bottom: 3px;
   text-align: center;

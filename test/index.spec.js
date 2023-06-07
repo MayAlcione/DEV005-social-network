@@ -155,7 +155,7 @@ describe('getPosts', () => {
 
 describe('eliminarPost', () => {
   it('deberia eliminar post si confirmado', () => {
-    window.confirm = jest.fn().mockReturnValue(true);
+    window.confirm = jest.spyOn().mockReturnValue(true);
     deleteDoc.mockResolvedValue();
 
     return eliminarPost('postId123').then(() => {
@@ -165,7 +165,7 @@ describe('eliminarPost', () => {
   });
 
   it('deberia cancelar eliminación del post si es cancelado', () => {
-    window.confirm = jest.fn().mockReturnValue(false);
+    window.confirm = jest.spyOn().mockReturnValue(false);
 
     return eliminarPost('postId123').then(() => {
       expect(window.confirm).toHaveBeenCalledWith('¿Estás seguro de que deseas eliminar este post?');
@@ -189,7 +189,7 @@ describe('editarPost', () => {
 
 describe('signOut', () => {
   it('deberia cerrar sesion de usuario', () => {
-    auth.signOut = jest.fn().mockResolvedValue();
+    auth.signOut = jest.spyOn().mockResolvedValue();
 
     return signOut().then(() => {
       expect(auth.signOut).toHaveBeenCalled();
